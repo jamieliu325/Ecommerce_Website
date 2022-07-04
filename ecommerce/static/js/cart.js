@@ -1,5 +1,7 @@
 var updateBtns = document.getElementsByClassName('update-cart')
+console.log(updateBtns)
 
+// when click on up or down arrow button
 for (i = 0; i < updateBtns.length; i++){
     updateBtns[i].addEventListener('click',function(){
         var productId = this.dataset.product
@@ -14,6 +16,7 @@ for (i = 0; i < updateBtns.length; i++){
     })
 }
 
+// for gest user
 function addCookieItem(productId,action){
     console.log('User is not authenticated')
 	if (action == 'add'){
@@ -25,7 +28,7 @@ function addCookieItem(productId,action){
 	}
     if(action=='remove'){
         cart[productId]['quantity'] -= 1
-        if(cart[productId]['quantity']<=0){
+        if(cart[productId]['quantity']==0){
             console.log('Remove Item')
             delete cart[productId]
         }
@@ -35,6 +38,7 @@ function addCookieItem(productId,action){
     location.reload()
 }
 
+// for registered user
 function updateUserOrder(productId, action){
     console.log('User is logged in, sending data..')
     var url = '/update_item/'

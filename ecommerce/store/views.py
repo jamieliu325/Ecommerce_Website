@@ -3,7 +3,7 @@ import json
 import datetime
 from django.http import JsonResponse
 from .models import *
-from .utils import cookieCart, cartData, guestOrder
+from .utils import cartData, guestOrder
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
@@ -32,6 +32,7 @@ def checkout(request):
     return render(request, 'store/checkout.html', context)
 
 def updateItem(request):
+    # parse JSON string and convert it into python dictionary
     data = json.loads(request.body)
     productId=data['productId']
     action=data['action']
@@ -40,11 +41,12 @@ def updateItem(request):
     order,created=Order.objects.get_or_create(customer=customer,complete=False)
     orderItem,created=OrderItem.objects.get_or_create(order=order,product=product)
     if action == 'add':
-        orderItem.quantity = (orderItem.quantity + 1)
+        orderItem.quantity = orderItem.quantity + 1
     elif action == 'remove':
-        orderItem.quantity = (orderItem.quantity - 1)
+        orderItem.quantity = orderItem.quantity - 1
+    # to save the order item
     orderItem.save()
-    if orderItem.quantity<=0:
+    if orderItem.quantity==0:
         orderItem.delete()
     return JsonResponse('Item was added', safe=False)
 

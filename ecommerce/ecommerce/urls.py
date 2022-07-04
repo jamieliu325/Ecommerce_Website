@@ -18,9 +18,10 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+# to connect the new urls in urls.py in store
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('store.urls'))
 ]
-
+# add the path to save the images
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

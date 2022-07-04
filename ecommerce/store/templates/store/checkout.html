@@ -69,7 +69,7 @@
 <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD&disable-funding=credit"></script>
 <script>
 		var total = '{{order.get_cart_total}}'
-        // Render the PayPal button into #paypal-button-container
+        // Render the PayPal button into #paypal-button-container, JS code can be found from Paypal website for developer
         paypal.Buttons({
 
         	style: {
@@ -108,12 +108,12 @@
     }
 
     if (user != 'AnonymousUser'){
-        document.getElementById('uer-info').innerHTML=''
+        document.getElementById('user-info').innerHTML=''
     }
 
     if (shipping == 'False' && user != 'AnonymousUser'){
         document.getElementById('form-wrapper').classList.add('hidden');
-        document.getElementById('form-wrapper').classList.remove('hidden');
+        document.getElementById('payment-info').classList.remove('hidden');
     }
 
     var form = document.getElementById('form')
@@ -148,6 +148,7 @@
             shippingInfo.address = form.address.value
             shippingInfo.city = form.city.value
             shippingInfo.province = form.province.value
+            shippingInfo.country = form.country.value
             shippingInfo.zipcode = form.zipcode.value
         }
 

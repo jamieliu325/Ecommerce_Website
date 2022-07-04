@@ -2,6 +2,7 @@ import json
 from .models import *
 
 def cookieCart(request):
+    # try to get cookies for cart, create an empty cart if cookie doesn't exist
     try:
         cart=json.loads(request.COOKIES['cart'])
     except:
@@ -12,6 +13,7 @@ def cookieCart(request):
 
     for i in cart:
         try:
+            # update total cost and total item if the quantity of the item greater than 0
             if cart[i]['quantity']>0:
                 cartItems+=cart[i]['quantity']
                 product=Product.objects.get(id=i)
@@ -59,6 +61,6 @@ def guestOrder(request,data):
         orderItem=OrderItem.objects.create(
             product=product,
             order=order,
-            quantity=(item['quantity'] if item['quantity']>0 else -1*item['quantity'])
+            quantity=item['quantity']
         )
     return customer,order

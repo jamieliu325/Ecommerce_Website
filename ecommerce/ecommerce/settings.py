@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# add new app here
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -128,5 +128,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # set up image URL
 MEDIA_URL = '/images/'
-# upload images to images folder
+# upload images to image folder
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/images')
