@@ -37,5 +37,6 @@ Add products to database at /admin when log in as superuser
 
 Add styling sign up and log in forms: pip install django-crispy-forms
 
-**Run**
+**Run the website**
+
 python manage.py runserver
