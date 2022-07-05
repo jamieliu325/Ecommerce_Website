@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store.apps.StoreConfig'
+    'store.apps.StoreConfig',
+    'register.apps.RegisterConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +132,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/images/'
 # upload images to image folder
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/images')
+# set up css for register form using bootstrap
+CRISPY_TEMPLATE_PACK="bootstrap4"
+# redirect to homepage after login or logout
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

@@ -1,0 +1,20 @@
+{% extends 'store/main.html' %}
+
+{% block titlte %}Register{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<script type="text/javascript">
+	document.getElementById('cart-icon').classList.add('hidden');
+	document.getElementById('cart-total').classList.add('hidden');
+</script>
+	<div class="content-section">
+		<form method="POST" class="form-group">
+			{% csrf_token %}
+			<legend class="border-bottom mb-3">Create an Account</legend>
+			{{form|crispy}}
+			<button name="create", type="submit", class="btn btn-success">Register</button>
+		</form>
+	</div>
+{% endblock %}

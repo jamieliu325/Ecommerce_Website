@@ -1,6 +1,7 @@
 import json
 from .models import *
 
+
 def cookieCart(request):
     # try to get cookies for cart, create an empty cart if cookie doesn't exist
     try:
@@ -36,7 +37,9 @@ def cookieCart(request):
 
 def cartData(request):
     if request.user.is_authenticated:
+
         customer=request.user.customer
+
         order,created=Order.objects.get_or_create(customer=customer,complete=False)
         items=order.orderitem_set.all()
         cartItems=order.get_cart_items

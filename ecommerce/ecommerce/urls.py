@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from register import views as v
 
-# to connect the new urls in urls.py in store
+# to connect the new urls in urls.py in apps
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('store.urls'))
+    path('register/', v.register, name="register"),
+    path('',include('store.urls')),
+    path('', include("django.contrib.auth.urls"))
 ]
 # add the path to save the images
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

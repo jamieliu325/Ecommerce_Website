@@ -63,7 +63,7 @@ class Order(models.Model):
         return total
 
 class OrderItem(models.Model):
-    product = models.ForeignKey(Product,on_delete=models.SET_NULL,null=True)
+    product = models.ForeignKey(Product,on_delete=models.SET_NULL,null=True,related_name='customer')
     order = models.ForeignKey(Order,on_delete=models.SET_NULL,null=True)
     quantity = models.IntegerField(default=0,null=True,blank=True)
     data_added = models.DateTimeField(auto_now_add=True)
@@ -80,7 +80,7 @@ class ShippingAddress(models.Model):
     city=models.CharField(max_length=200,null=False)
     province=models.CharField(max_length=200,null=False)
     zipcode=models.CharField(max_length=200,null=False)
-    country=models.CharField(max_length=200,null=False)
+    country=models.CharField(max_length=200,default='Canada')
     data_added=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

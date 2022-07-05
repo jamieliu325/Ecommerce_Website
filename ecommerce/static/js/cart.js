@@ -42,6 +42,7 @@ function addCookieItem(productId,action){
 function updateUserOrder(productId, action){
     console.log('User is logged in, sending data..')
     var url = '/update_item/'
+    // generate csrftoken to avoid malicious attacks
     fetch(url,{
         method: 'POST',
         headers:{

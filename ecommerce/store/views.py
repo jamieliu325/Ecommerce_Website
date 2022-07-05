@@ -5,10 +5,12 @@ from django.http import JsonResponse
 from .models import *
 from .utils import cartData, guestOrder
 from django.views.decorators.csrf import csrf_exempt
-
+from django.contrib import messages
 # Create your views here.
 
 def store(request):
+    if request.user.is_authenticated:
+        messages.success(request, f'Welcome {request.user}!')
     data = cartData(request)
     cartItems = data['cartItems']
     products=Product.objects.all()
