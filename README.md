@@ -9,16 +9,18 @@ User can sign up an account
 
 Javascript code for Paypal can be found at https://developer.paypal.com/home
 
-Start Project: django-admin startproject "project name"
+Start Project (ecommerce): django-admin startproject "project name"
 
-Create App: python manage.py startapp "app name"
+Create Apps (store and register): python manage.py startapp "app name"
 
-Add APPS to INSTALLED_APPS in settings.py
+Add new apps (store, register, crispy_forms) to INSTALLED_APPS in settings.py
 Set up image url and folder address in settings.py
-Set up redirect path after login and logout in settings.py
+Set up redirect path for login and logout in settings.py
 Set up css for crispy form using bootsrap in settings.py
 
-Add views and paths to urlpatterns in urls.py
+Add names, views, and paths to urlpatterns in urls.py in store folder
+
+Add urls in apps to urls.py in project folder
 
 Migration:
 python manage.py makemigrations
