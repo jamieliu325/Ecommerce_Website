@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import json
 import datetime
 from django.http import JsonResponse
@@ -9,9 +9,9 @@ from django.contrib import messages
 # Create your views here.
 
 def store(request):
-    if request.user.is_authenticated:
-        messages.success(request, f'Welcome {request.user}!')
     data = cartData(request)
+    if request.user.is_authenticated:
+        messages.success(request, f'Welcome {request.user.customer.name}!')
     cartItems = data['cartItems']
     products=Product.objects.all()
     context={'products':products, 'cartItems':cartItems}
