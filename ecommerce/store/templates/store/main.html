@@ -63,7 +63,6 @@
                         <a href="/register" class="btn btn-warning" style="margin-right: 4px;">Sign up</a>
                         <a href="/login" class="btn btn-warning">Login</a>
                     {% else %}
-                        <P>{{Customer.name}}</P>
                         <a href="/logout" class="btn btn-warning">Logout</a>
                     {% endif %}
                     <a href="{% url 'cart' %}">
