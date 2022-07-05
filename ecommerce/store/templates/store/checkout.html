@@ -101,16 +101,16 @@
 </script>
 <script type="text/javascript">
     var shipping = '{{order.shipping}}'
-
-
+    
+    // hide shipping form if product is digital
     if (shipping == 'False'){
         document.getElementById('shipping-info').innerHTML=''
     }
-
+    // hide user form if user logged in the account
     if (user != 'AnonymousUser'){
         document.getElementById('user-info').innerHTML=''
     }
-
+    // hide user and shipping forms, display payment options if product is non-digital and user is logged in
     if (shipping == 'False' && user != 'AnonymousUser'){
         document.getElementById('form-wrapper').classList.add('hidden');
         document.getElementById('payment-info').classList.remove('hidden');
