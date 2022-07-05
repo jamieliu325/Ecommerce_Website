@@ -1,13 +1,19 @@
 # Ecommerce_website
 A simple version of ecommerce website is createdy by django, back-end: python, front-end: JavaScript, HTML, CSS
 
+**Functions:**
+
 Either registered user or guest user can review products, add or remove products in cart, fill in shipping information for checkout
 
 Cart items can be saved when user returns to the website
 
 User can sign up an account
 
+csrftoken is generated to avoid malicious attacks
+
 Javascript code for Paypal can be found at https://developer.paypal.com/home
+
+**Set up:**
 
 Start Project (ecommerce): django-admin startproject "project name"
 
@@ -31,6 +37,5 @@ Add products to database at /admin when log in as superuser
 
 Add styling sign up and log in forms: pip install django-crispy-forms
 
-csrftoken is generated to avoid malicious attacks
-
-Run: python manage.py runserver
+**Run: **
+python manage.py runserver
